@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:selectableItemBackground"
+    android:layout_marginTop="8dp"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_team_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/title"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tv_league_name"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/title"
+        android:textAllCaps="true"
+        android:layout_below="@+id/tv_team_title" />
+
+    <TextView
+        android:id="@+id/tv_year_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_team_title"
+        android:textAlignment="viewEnd"
+        android:layout_toEndOf="@+id/tv_league_name"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/year" />
+</RelativeLayout>
