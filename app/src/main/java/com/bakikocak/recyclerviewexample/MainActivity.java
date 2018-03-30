@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -14,29 +15,33 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
     private List<Team> teamList = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //teamList pass through the adapter
         mAdapter = new TeamAdapter(this,teamList);
+
+        //Setting RecyclerView
         mRecyclerView = findViewById(R.id.rv_main);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         // LinearLayoutManager's default is VERTICAL. To align items horizontally uncomment the following line
         // mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setAdapter(mAdapter);
+
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator()); //Default Item Animator for RecyclerView
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL)); //Divider between rows
+        mRecyclerView.setHasFixedSize(true); //Provides moother scrolling
+        mRecyclerView.setAdapter(mAdapter); //Set the adapter
 
         prepareTeamData();
     }
 
-
+    /**
+     *  Dummy data added to list
+     */
     private void prepareTeamData() {
 
         Team team = new Team("Anderlecht", "BEL", "1908");
