@@ -10,11 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.List;
 
-/**
- * Created by baki.kocak on 24/03/2018.
- */
 
-class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamViewHolder> {
+public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamViewHolder> {
 
     Context context;
     List<Team> teamList;

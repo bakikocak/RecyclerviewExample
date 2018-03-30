@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
 
-        prepareMovieData();
+        prepareTeamData();
     }
 
 
-    private void prepareMovieData() {
+    private void prepareTeamData() {
 
         Team team = new Team("Anderlecht", "BEL", "1908");
         teamList.add(team);
