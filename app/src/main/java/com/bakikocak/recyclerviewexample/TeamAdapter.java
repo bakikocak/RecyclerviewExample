@@ -14,7 +14,7 @@ import java.util.List;
  * Created by baki.kocak on 24/03/2018.
  */
 
-class TeamAdapter extends RecyclerView.Adapter {
+class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamViewHolder> {
 
     Context context;
     List<Team> teamList;
@@ -24,9 +24,10 @@ class TeamAdapter extends RecyclerView.Adapter {
         this.teamList = teamList;
     }
 
+
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TeamViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         boolean shouldAttachToParentImmediately = false;
@@ -37,11 +38,10 @@ class TeamAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        TeamViewHolder teamViewHolder = (TeamViewHolder) holder;
-        teamViewHolder.teamTitleTextView.setText(teamList.get(position).getTitle());
-        teamViewHolder.leagueNameTextView.setText(teamList.get(position).getLeague());
-        teamViewHolder.yearTextView.setText(teamList.get(position).getYear());
+    public void onBindViewHolder(@NonNull TeamViewHolder holder, int position) {
+        holder.teamTitleTextView.setText(teamList.get(position).getTitle());
+        holder.leagueNameTextView.setText(teamList.get(position).getLeague());
+        holder.yearTextView.setText(teamList.get(position).getYear());
     }
 
     @Override

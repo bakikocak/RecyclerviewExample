@@ -26,8 +26,11 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new TeamAdapter(this,teamList);
         mRecyclerView = findViewById(R.id.rv_main);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // LinearLayoutManager's default is VERTICAL. To align items horizontally uncomment the following line
+        // mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
 
         prepareMovieData();
